@@ -72,6 +72,9 @@ public class TestThread extends Thread{
 		thread.setCanRun(false);
 	}
 	
+	/**
+	 * 
+	 */
 	private static void testPassiveInterrupt() {
 		PassiveInterruptThread thread = new PassiveInterruptThread();
 		thread.start();
@@ -86,7 +89,9 @@ public class TestThread extends Thread{
 		thread.interrupt();
 	}
 	
-	//
+	/**
+	 *
+	 */
 	private static class CountThread extends Thread {
 		@Override
 		public void run() {
@@ -99,7 +104,7 @@ public class TestThread extends Thread{
 	}
 	
 	/**
-	 * 
+	 * 使用标志位来检测线程是否在运行
 	 */
 	private static class ActiveCheckThread extends Thread {
 		//能否运行的标志
@@ -124,8 +129,9 @@ public class TestThread extends Thread{
 	}
 	
 	/**
-	 * 
-	 *
+	 * Thread类提供了线程中断机制，所以我们只需要捕获中断异常
+	 * InterruptedException即可，没有抛出，线程正常运行，抛出，
+	 * 我们只需要对其进行妥善处理即可
 	 */
 	private static class PassiveInterruptThread extends Thread {
 		public void run() {
